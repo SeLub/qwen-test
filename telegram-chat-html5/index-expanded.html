@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram-like Chat Application</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div id="Main" class="flex h-screen bg-background text-foreground">
+        <!-- Left Column -->
+        <div id="LeftColumn" class="w-80 border-r border-border flex flex-col">
+            <div class="flex items-center justify-between p-4 border-b border-border">
+                <button id="menuButton" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9 shrink-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu h-5 w-5" aria-hidden="true"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+                </button>
+                <h2 class="text-lg font-semibold">BeSafeChat</h2>
+                <div class="w-10"></div>
+            </div>
+            
+            <!-- Mobile Menu Overlay -->
+            <div id="mobileMenu" class="fixed top-0 left-0 h-full w-80 bg-background border-r border-border z-50 transform transition-transform duration-300 -translate-x-full">
+                <div class="flex flex-col h-full">
+                    <div class="flex items-center justify-between p-4 border-b border-border">
+                        <h2 class="text-lg font-semibold">Menu</h2>
+                        <button id="closeMenuButton" class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x h-5 w-5" aria-hidden="true"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                        </button>
+                    </div>
+                    <div class="p-4 border-b border-border">
+                        <div class="flex items-center space-x-3">
+                            <div class="relative flex shrink-0 overflow-hidden rounded-full h-12 w-12">
+                                <div class="flex h-full w-full items-center justify-center rounded-full font-medium text-sm absolute inset-0 bg-primary text-primary-foreground">SL</div>
+                                <img class="aspect-square h-full w-full object-cover relative z-10" crossorigin="anonymous" src="https://s3.tebi.io/besafe.backet/users/89818c02-d096-4b88-b899-b1293a5ca6ea/avatar.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=hpIMKqPNLuibRLGd%2F20251210%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20251210T063035Z&X-Amz-Expires=3600&X-Amz-Signature=f55ae643f0ca4161cdf2d7fdb6120ad2dbcd5bfec665ae58023af0af4a3d4409&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject">
+                            </div>
+                            <div class="flex-1 min-w-0">
+                                <div class="font-medium truncate">Sergey Lubimov</div>
+                                <div class="text-sm text-muted-foreground truncate">eRYDMybUH5yzWtuL...</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1 py-2">
+                        <button class="w-full flex items-center space-x-3 px-4 py-3 hover:bg-accent text-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user h-5 w-5" aria-hidden="true"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                            <span>My Profile</span>
+                        </button>
+                        <div class="relative">
+                            <button class="w-full flex items-center space-x-3 px-4 py-3 hover:bg-accent text-left">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users h-5 w-5" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                                <span>Contacts</span>
+                            </button>
+                        </div>
+                        <button class="w-full flex items-center space-x-3 px-4 py-3 hover:bg-accent text-left">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings h-5 w-5" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                            <span>Settings</span>
+                        </button>
+                        <div class="flex items-center justify-between px-4 py-3 hover:bg-accent cursor-pointer">
+                            <div class="flex items-center space-x-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun h-5 w-5" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>
+                                <span>Night Mode</span>
+                            </div>
+                            <button type="button" role="switch" aria-checked="false" data-state="unchecked" value="on" data-slot="switch" class="peer data-[state=checked]:bg-primary data-[state=unchecked]:bg-input focus-visible:border-ring focus-visible:ring-ring/50 dark:data-[state=unchecked]:bg-input/80 inline-flex h-[1.15rem] w-8 shrink-0 items-center rounded-full border border-transparent shadow-xs transition-all outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50">
+                                <span data-state="unchecked" data-slot="switch-thumb" class="bg-background dark:data-[state=unchecked]:bg-foreground dark:data-[state=checked]:bg-primary-foreground pointer-events-none block size-4 rounded-full ring-0 transition-transform data-[state=checked]:translate-x-[calc(100%-2px)] data-[state=unchecked]:translate-x-0"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="text-lg font-semibold p-4">Chats</h2>
+            <div class="w-10"></div>
+            
+            <div class="p-3 border-b border-border">
+                <div class="relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" aria-hidden="true">
+                        <path d="m21 21-4.34-4.34"></path>
+                        <circle cx="11" cy="11" r="8"></circle>
+                    </svg>
+                    <input placeholder="Search chats..." class="w-full pl-10 pr-4 py-2 bg-muted rounded-lg outline-none focus:ring-2 focus:ring-primary/20" type="text">
+                </div>
+            </div>
+            <div class="p-3 border-b border-border">
+                <button class="inline-flex items-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50 h-9 px-4 py-2 has-[>svg]:px-3 w-full justify-start">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus h-4 w-4 mr-2" aria-hidden="true">
+                        <path d="M5 12h14"></path>
+                        <path d="M12 5v14"></path>
+                    </svg>
+                    New Chat
+                </button>
+            </div>
+            <div class="flex-1 overflow-y-auto">
+                <div class="flex items-center p-3 cursor-pointer hover:bg-accent/50 bg-accent" data-contact-id="1">
+                    <div class="relative">
+                        <div class="relative flex shrink-0 overflow-hidden rounded-full h-12 w-12">
+                            <div class="flex h-full w-full items-center justify-center rounded-full font-medium text-sm absolute inset-0 bg-primary text-primary-foreground">SL</div>
+                            <img class="aspect-square h-full w-full object-cover relative z-10" crossorigin="anonymous" src="https://s3.tebi.io/besafe.backet/users/c826a447-b103-4ebd-a834-b029685e1abf/avatar.png">
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-background"></div>
+                    </div>
+                    <div class="ml-3 flex-1 min-w-0">
+                        <div class="flex items-center justify-between">
+                            <div class="font-medium truncate">Sergey Lubimov</div>
+                        </div>
+                        <div class="flex items-center justify-between mt-1">
+                            <div class="text-sm text-muted-foreground truncate">No messages yet</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center p-3 cursor-pointer hover:bg-accent/50" data-contact-id="2">
+                    <div class="relative">
+                        <div class="relative flex shrink-0 overflow-hidden rounded-full h-12 w-12">
+                            <div class="flex h-full w-full items-center justify-center rounded-full font-medium text-sm absolute inset-0 bg-primary text-primary-foreground">JD</div>
+                            <img class="aspect-square h-full w-full object-cover relative z-10" crossorigin="anonymous" src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff">
+                        </div>
+                    </div>
+                    <div class="ml-3 flex-1 min-w-0">
+                        <div class="flex items-center justify-between">
+                            <div class="font-medium truncate">John Doe</div>
+                            <span class="bg-primary text-primary-foreground text-xs rounded-full px-2 py-0.5 min-w-[20px] text-center">3</span>
+                        </div>
+                        <div class="flex items-center justify-between mt-1">
+                            <div class="text-sm text-muted-foreground truncate">See you tomorrow!</div>
+                            <div class="text-xs text-muted-foreground whitespace-nowrap ml-2">9:45 AM</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex items-center p-3 cursor-pointer hover:bg-accent/50" data-contact-id="3">
+                    <div class="relative">
+                        <div class="relative flex shrink-0 overflow-hidden rounded-full h-12 w-12">
+                            <div class="flex h-full w-full items-center justify-center rounded-full font-medium text-sm absolute inset-0 bg-primary text-primary-foreground">JS</div>
+                            <img class="aspect-square h-full w-full object-cover relative z-10" crossorigin="anonymous" src="https://ui-avatars.com/api/?name=Jane+Smith&background=0D8ABC&color=fff">
+                        </div>
+                        <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-background"></div>
+                    </div>
+                    <div class="ml-3 flex-1 min-w-0">
+                        <div class="flex items-center justify-between">
+                            <div class="font-medium truncate">Jane Smith</div>
+                        </div>
+                        <div class="flex items-center justify-between mt-1">
+                            <div class="text-sm text-muted-foreground truncate">Thanks for the update</div>
+                            <div class="text-xs text-muted-foreground whitespace-nowrap ml-2">Yesterday</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle Column -->
+        <div id="MiddleColumn" class="flex-1 flex flex-col">
+            <div class="MiddleHeader border-b border-border p-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center">
+                        <div class="relative flex shrink-0 overflow-hidden rounded-full h-10 w-10">
+                            <div class="flex h-full w-full items-center justify-center rounded-full font-medium text-sm absolute inset-0 bg-primary text-primary-foreground">SL</div>
+                            <img class="aspect-square h-full w-full object-cover relative z-10" crossorigin="anonymous" src="https://s3.tebi.io/besafe.backet/users/c826a447-b103-4ebd-a834-b029685e1abf/avatar.png">
+                        </div>
+                        <div class="ml-3">
+                            <div class="font-medium">Sergey Lubimov</div>
+                            <div class="text-sm text-muted-foreground flex items-center">
+                                <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                                Online
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone h-5 w-5" aria-hidden="true">
+                                <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"></path>
+                            </svg>
+                        </button>
+                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-video h-5 w-5" aria-hidden="true">
+                                <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
+                                <rect x="2" y="6" width="14" height="12" rx="2"></rect>
+                            </svg>
+                        </button>
+                        <button class="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50 size-9">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-info h-5 w-5" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M12 16v-4"></path>
+                                <path d="M12 8h.01"></path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="middle-column relative flex-1">
+                <div class="middle-column-bg absolute inset-0 pointer-events-none"></div>
+                <div class="message-scroll relative z-10 h-full p-4 overflow-y-auto custom-scroll">
+                    <div class="mb-2 p-3 rounded-lg max-w-xs shadow message-other" style="background: linear-gradient(to right, rgb(199, 156, 150) 2%, white 2%);">
+                        <div class="text-xs text-muted-foreground mb-1">Sergey Lubimov</div>
+                        <div>dgf</div>
+                    </div>
+                    <div class="mb-2 p-3 rounded-lg max-w-xs shadow ml-auto message-own">
+                        <div>cvbcb</div>
+                    </div>
+                    <div class="mb-2 p-3 rounded-lg max-w-xs shadow message-other" style="background: linear-gradient(to right, rgb(199, 156, 150) 2%, white 2%);">
+                        <div class="text-xs text-muted-foreground mb-1">Sergey Lubimov</div>
+                        <div>gfhhfg</div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+            <div class="middle-column-footer border-t border-border p-4">
+                <div class="flex items-center">
+                    <button id="attachButton" class="p-2 text-blue-500 hover:bg-gray-300 rounded-full mr-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-paperclip w-5 h-5" aria-hidden="true">
+                            <path d="4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
+                            <path d="4 15h12"></path>
+                        </svg>
+                    </button>
+                    
+                    <div class="flex-1">
+                        <textarea id="messageInput" placeholder="Type a message..." class="
+                            w-full
+                            px-4
+                            py-2
+                            h-10
+                            bg-muted
+                            rounded-lg
+                            border-0
+                            outline-none
+                            ring-0
+                            focus:outline-none
+                            focus:ring-0
+                            placeholder:opacity-70
+                            box-border
+                            resize-none
+                        " rows="1"></textarea>
+                    </div>
+                    
+                    <button id="sendButton" class="ml-2 inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive bg-primary text-primary-foreground hover:bg-primary/90 has-[>svg]:px-3 px-4 py-2 h-10 rounded-lg border-0 outline-none ring-0 focus:outline-none focus:ring-0 box-border">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send h-4 w-4" aria-hidden="true">
+                            <path d="m22 2-7 20-4-9-9-4Z"></path>
+                            <path d="M22 2 11 13"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Attachment Options -->
+                <div id="attachmentOptions" class="bg-gray-200 p-3 grid grid-cols-3 gap-2 mb-2 rounded-lg" style="display: none;">
+                    <button class="bg-white p-3 rounded-lg flex flex-col items-center justify-center hover:bg-gray-100 attach-option" data-option="photo">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-image w-6 h-6 mb-1" aria-hidden="true">
+                            <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                            <circle cx="9" cy="9" r="2"></circle>
+                            <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path>
+                        </svg>
+                        <span class="text-xs">Photo</span>
+                    </button>
+                    <button class="bg-white p-3 rounded-lg flex flex-col items-center justify-center hover:bg-gray-100 attach-option" data-option="location">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin w-6 h-6 mb-1" aria-hidden="true">
+                            <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span class="text-xs">Location</span>
+                    </button>
+                    <button class="bg-white p-3 rounded-lg flex flex-col items-center justify-center hover:bg-gray-100 attach-option" data-option="contact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user w-6 h-6 mb-1" aria-hidden="true">
+                            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                        <span class="text-xs">Contact</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const chatMessages = document.querySelector('.message-scroll');
+            const messageInput = document.getElementById('messageInput');
+            const sendButton = document.getElementById('sendButton');
+            const attachButton = document.getElementById('attachButton');
+            const attachmentOptions = document.getElementById('attachmentOptions');
+            const menuButton = document.getElementById('menuButton');
+            const closeMenuButton = document.getElementById('closeMenuButton');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const contacts = document.querySelectorAll('[data-contact-id]');
+            
+            // Auto-resize textarea
+            messageInput.addEventListener('input', function() {
+                this.style.height = 'auto';
+                this.style.height = (this.scrollHeight) + 'px';
+            });
+            
+            // Toggle attachment options
+            attachButton.addEventListener('click', function(e) {
+                e.stopPropagation();
+                attachmentOptions.style.display = attachmentOptions.style.display === 'grid' ? 'none' : 'grid';
+            });
+            
+            // Close attachment options when clicking elsewhere
+            document.addEventListener('click', function(e) {
+                if (!attachmentOptions.contains(e.target) && e.target !== attachButton) {
+                    attachmentOptions.style.display = 'none';
+                }
+            });
+            
+            // Toggle mobile menu
+            menuButton.addEventListener('click', function() {
+                mobileMenu.classList.remove('-translate-x-full');
+                mobileMenu.classList.add('translate-x-0');
+            });
+            
+            closeMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.add('-translate-x-full');
+                mobileMenu.classList.remove('translate-x-0');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(e) {
+                if (!mobileMenu.contains(e.target) && 
+                    e.target !== menuButton && 
+                    !e.target.closest('#LeftColumn')) {
+                    mobileMenu.classList.add('-translate-x-full');
+                    mobileMenu.classList.remove('translate-x-0');
+                }
+            });
+            
+            // Contact selection
+            contacts.forEach(contact => {
+                contact.addEventListener('click', function() {
+                    // Remove active class from all contacts
+                    contacts.forEach(c => c.classList.remove('bg-accent'));
+                    // Add active class to clicked contact
+                    this.classList.add('bg-accent');
+                    
+                    // Update chat header with selected contact info
+                    const contactName = this.querySelector('.font-medium').textContent;
+                    const contactAvatar = this.querySelector('img').src;
+                    const isOnline = this.querySelector('.bg-green-500') !== null;
+                    
+                    document.querySelector('.MiddleHeader .font-medium').textContent = contactName;
+                    document.querySelector('.MiddleHeader img').src = contactAvatar;
+                    document.querySelector('.MiddleHeader .text-sm').innerHTML = 
+                        isOnline ? '<div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div> Online' : 'Offline';
+                });
+            });
+            
+            // Handle sending messages
+            function sendMessage() {
+                const messageText = messageInput.value.trim();
+                if (messageText) {
+                    // Create message element
+                    const messageElement = document.createElement('div');
+                    messageElement.className = 'mb-2 p-3 rounded-lg max-w-xs shadow ml-auto message-own';
+                    
+                    const now = new Date();
+                    const timeString = now.getHours().toString().padStart(2, '0') + ':' + 
+                                      now.getMinutes().toString().padStart(2, '0');
+                    
+                    messageElement.innerHTML = `
+                        <div>${escapeHtml(messageText)}</div>
+                        <div class="text-xs text-muted-foreground mt-1 text-right">${timeString}</div>
+                    `;
+                    
+                    chatMessages.appendChild(messageElement);
+                    messageInput.value = '';
+                    messageInput.style.height = 'auto';
+                    
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    // Simulate reply after a delay
+                    setTimeout(simulateReply, 1000 + Math.random() * 2000);
+                }
+            }
+            
+            // Simulate reply from contact
+            function simulateReply() {
+                const replies = [
+                    "Thanks for your message!",
+                    "That's interesting, tell me more.",
+                    "I agree with you on that point.",
+                    "How are you doing today?",
+                    "I was thinking about the same thing.",
+                    "Great to hear from you!"
+                ];
+                
+                const randomReply = replies[Math.floor(Math.random() * replies.length)];
+                
+                const messageElement = document.createElement('div');
+                messageElement.className = 'mb-2 p-3 rounded-lg max-w-xs shadow message-other';
+                messageElement.style.background = 'linear-gradient(to right, rgb(199, 156, 150) 2%, white 2%)';
+                
+                const now = new Date();
+                const timeString = now.getHours().toString().padStart(2, '0') + ':' + 
+                                  now.getMinutes().toString().padStart(2, '0');
+                
+                const currentContactName = document.querySelector('.MiddleHeader .font-medium').textContent;
+                
+                messageElement.innerHTML = `
+                    <div class="text-xs text-muted-foreground mb-1">${currentContactName}</div>
+                    <div>${escapeHtml(randomReply)}</div>
+                    <div class="text-xs text-muted-foreground mt-1 text-right">${timeString}</div>
+                `;
+                
+                chatMessages.appendChild(messageElement);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+            
+            // Escape HTML to prevent XSS
+            function escapeHtml(text) {
+                const div = document.createElement('div');
+                div.textContent = text;
+                return div.innerHTML;
+            }
+            
+            // Event listeners
+            sendButton.addEventListener('click', sendMessage);
+            
+            messageInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter' && !e.shiftKey) {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+            
+            // Initialize scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Initialize Lucide icons
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
