@@ -1,13 +1,9 @@
 # Telegram-like Chat Interface
 
-This project contains two implementations of a Telegram-like mobile-first responsive chat interface:
+This project contains three implementations of a Telegram-like mobile-first responsive chat interface:
 
-## 1. HTML5, SASS, JavaScript Implementation
-
-Located in the `telegram-chat-html5` directory, this implementation uses:
-- HTML5 for structure
-- SASS (compiled to CSS) for styling
-- Vanilla JavaScript for functionality
+## 1. HTML5, SASS, JavaScript (Original)
+A mobile-first responsive chat interface using vanilla web technologies.
 
 ### Features:
 - Mobile-first responsive design
@@ -19,17 +15,26 @@ Located in the `telegram-chat-html5` directory, this implementation uses:
 - Timestamps for messages
 - Smooth scrolling to latest message
 
-### How to use:
-1. Navigate to the `telegram-chat-html5` directory
-2. Open `index.html` in a web browser
+## 2. HTML5, SASS, JavaScript (Expanded)
+A complete application with three-column layout based on your design.
 
-## 2. React, Tailwind CSS, Radix UI Implementation
+### Features:
+- Complete three-column layout with sidebar
+- Contact list with online status indicators
+- Mobile-responsive menu with slide-out panel
+- Dark mode toggle functionality
+- Search functionality
+- New chat button
+- Message bubbles with different styles for sent/received messages
+- Avatar components
+- Message input with auto-resizing textarea
+- Attachment options (photo, location, contact)
+- Online status indicator
+- Timestamps for messages
+- Smooth scrolling to latest message
 
-Located in the `telegram-chat-react` directory, this implementation uses:
-- React for component structure
-- Tailwind CSS for styling
-- Radix UI for accessible components
-- Lucide React for icons
+## 3. React, Tailwind CSS
+A modern React implementation with Tailwind CSS styling.
 
 ### Features:
 - Modern React component architecture
@@ -40,39 +45,51 @@ Located in the `telegram-chat-react` directory, this implementation uses:
 - Simulated reply functionality
 - Online status indicator
 
-### How to set up and run:
-1. Navigate to the `telegram-chat-react` directory
-2. Install dependencies: `npm install`
-3. Start the development server: `npm run dev`
-4. Visit `http://localhost:5173` in your browser
+## How to Run
 
-### Available Scripts:
-- `npm run dev` - Starts the development server
-- `npm run build` - Builds the project for production
-- `npm run preview` - Locally preview the production build
-- `npm run lint` - Lints the code
+### For the HTML5 versions:
+Simply open the HTML files in your browser:
+- `telegram-chat-html5/index.html` (Original)
+- `telegram-chat-html5/index-expanded.html` (Expanded)
 
-## Common Components Included:
+Or serve them using a local HTTP server:
+```bash
+cd /workspace
+python3 -m http.server 8000
+```
+Then visit `http://localhost:8000/test.html` in your browser.
 
-Both implementations include:
-- Header with contact information and status
-- Avatar components for users
-- Message bubbles with different styling for sent/received
-- Message input area with attachment button
-- Send button
-- Attachment options panel
-- Timestamps for messages
-- Online status indicators
-- Responsive design for mobile and desktop
+### For the React version:
+You need to run a development server to properly load the modules. You can set it up by navigating to the `telegram-chat-react` directory and running:
+```bash
+cd telegram-chat-react
+npm install
+npm run dev
+```
+Then visit `http://localhost:5173` in your browser.
 
-## Design Features:
+## Project Structure
+```
+/workspace/
+├── telegram-chat-html5/
+│   ├── index.html (Original implementation)
+│   ├── index-expanded.html (Expanded implementation)
+│   ├── styles.css
+│   ├── styles.scss
+│   └── script.js
+├── telegram-chat-react/
+│   ├── src/
+│   │   └── App.jsx
+│   ├── public/
+│   └── package.json
+├── test.html (Main demo page)
+└── README.md (This file)
+```
 
-- Telegram-like visual style with message bubbles
-- Different colors for sent and received messages
-- Rounded corners on message bubbles
-- Proper spacing and alignment
-- Mobile-first approach with responsive adjustments
-- Clean and modern UI elements
-- Interactive components with hover effects
-
-Both implementations are designed for further customization and development based on your specific requirements.
+## Screenshots
+The implementations include:
+- Mobile-optimized chat interface
+- Responsive design that works on different screen sizes
+- Interactive message components
+- Contact list with status indicators
+- Modern UI with clean design
