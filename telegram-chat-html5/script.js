@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         messageElement.innerHTML = `
             <div class="avatar">
-                <img src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff" alt="Contact">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3Cpath d='M12 2a8 8 0 0 0-8 8c0 2.4.9 4.6 2.3 6.2a7.93 7.93 0 0 0 3.1 1.9A8 8 0 0 0 12 22a8 8 0 0 0 3.6-1.7 7.93 7.93 0 0 0 3.1-1.9c1.4-1.6 2.3-3.8 2.3-6.2a8 8 0 0 0-8-8z'%3E%3C/path%3E%3C/svg%3E" alt="Contact">
             </div>
             <div class="message-content">
                 <div class="message-text">${escapeHtml(randomReply)}</div>
@@ -90,6 +90,36 @@ document.addEventListener('DOMContentLoaded', function() {
         // Scroll to bottom
         chatMessages.scrollTop = chatMessages.scrollHeight;
     }
+    
+    // Handle attachment options
+    const attachOptions = document.querySelectorAll('.attach-option');
+    attachOptions.forEach(option => {
+        option.addEventListener('click', function() {
+            const optionText = this.textContent.trim();
+            console.log(`Selected attachment option: ${optionText}`);
+            
+            // Hide attachment options
+            attachmentOptions.style.display = 'none';
+            
+            // You can add specific functionality for each attachment type here
+            if(optionText.includes('Photo')) {
+                // Handle photo attachment
+                console.log('Photo attachment selected');
+            } else if(optionText.includes('Video')) {
+                // Handle video attachment
+                console.log('Video attachment selected');
+            } else if(optionText.includes('File')) {
+                // Handle file attachment
+                console.log('File attachment selected');
+            } else if(optionText.includes('Location')) {
+                // Handle location attachment
+                console.log('Location attachment selected');
+            } else if(optionText.includes('Contact')) {
+                // Handle contact attachment
+                console.log('Contact attachment selected');
+            }
+        });
+    });
     
     // Escape HTML to prevent XSS
     function escapeHtml(text) {
