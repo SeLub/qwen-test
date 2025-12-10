@@ -26,7 +26,7 @@ const App = () => {
       text: "Hello! How are you doing today?",
       sender: "other",
       time: "10:30 AM",
-      avatar: "https://s3.tebi.io/besafe.backet/users/c826a447-b103-4ebd-a834-b029685e1abf/avatar.png"
+      avatar: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3Cpath d='M12 2a8 8 0 0 0-8 8c0 2.4.9 4.6 2.3 6.2a7.93 7.93 0 0 0 3.1 1.9A8 8 0 0 0 12 22a8 8 0 0 0 3.6-1.7 7.93 7.93 0 0 0 3.1-1.9c1.4-1.6 2.3-3.8 2.3-6.2a8 8 0 0 0-8-8z'%3E%3C/path%3E%3C/svg%3E"
     },
     {
       id: 2,
@@ -40,7 +40,7 @@ const App = () => {
       text: "I'm good too! Just working on some new projects.",
       sender: "other",
       time: "10:33 AM",
-      avatar: "https://s3.tebi.io/besafe.backet/users/c826a447-b103-4ebd-a834-b029685e1abf/avatar.png"
+      avatar: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3Cpath d='M12 2a8 8 0 0 0-8 8c0 2.4.9 4.6 2.3 6.2a7.93 7.93 0 0 0 3.1 1.9A8 8 0 0 0 12 22a8 8 0 0 0 3.6-1.7 7.93 7.93 0 0 0 3.1-1.9c1.4-1.6 2.3-3.8 2.3-6.2a8 8 0 0 0-8-8z'%3E%3C/path%3E%3C/svg%3E"
     },
     {
       id: 4,
@@ -62,7 +62,7 @@ const App = () => {
     {
       id: 1,
       name: "Sergey Lubimov",
-      avatar: "https://s3.tebi.io/besafe.backet/users/c826a447-b103-4ebd-a834-b029685e1abf/avatar.png",
+      avatar: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3Cpath d='M12 2a8 8 0 0 0-8 8c0 2.4.9 4.6 2.3 6.2a7.93 7.93 0 0 0 3.1 1.9A8 8 0 0 0 12 22a8 8 0 0 0 3.6-1.7 7.93 7.93 0 0 0 3.1-1.9c1.4-1.6 2.3-3.8 2.3-6.2a8 8 0 0 0-8-8z'%3E%3C/path%3E%3C/svg%3E",
       lastMessage: "No messages yet",
       time: "10:30 AM",
       online: true,
@@ -71,7 +71,7 @@ const App = () => {
     {
       id: 2,
       name: "John Doe",
-      avatar: "https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff",
+      avatar: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='%230D8ABC' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3Cpath d='M12 2a8 8 0 0 0-8 8c0 2.4.9 4.6 2.3 6.2a7.93 7.93 0 0 0 3.1 1.9A8 8 0 0 0 12 22a8 8 0 0 0 3.6-1.7 7.93 7.93 0 0 0 3.1-1.9c1.4-1.6 2.3-3.8 2.3-6.2a8 8 0 0 0-8-8z'%3E%3C/path%3E%3C/svg%3E",
       lastMessage: "See you tomorrow!",
       time: "9:45 AM",
       online: false,
@@ -80,7 +80,7 @@ const App = () => {
     {
       id: 3,
       name: "Jane Smith",
-      avatar: "https://ui-avatars.com/api/?name=Jane+Smith&background=0D8ABC&color=fff",
+      avatar: "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='%230D8ABC' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3Cpath d='M12 2a8 8 0 0 0-8 8c0 2.4.9 4.6 2.3 6.2a7.93 7.93 0 0 0 3.1 1.9A8 8 0 0 0 12 22a8 8 0 0 0 3.6-1.7 7.93 7.93 0 0 0 3.1-1.9c1.4-1.6 2.3-3.8 2.3-6.2a8 8 0 0 0-8-8z'%3E%3C/path%3E%3C/svg%3E",
       lastMessage: "Thanks for the update",
       time: "Yesterday",
       online: true,
@@ -198,7 +198,7 @@ const App = () => {
                     <div className="flex h-full w-full items-center justify-center rounded-full font-medium text-sm absolute inset-0 bg-primary text-primary-foreground">SL</div>
                     <img 
                       className="aspect-square h-full w-full object-cover relative z-10" 
-                      src="https://s3.tebi.io/besafe.backet/users/89818c02-d096-4b88-b899-b1293a5ca6ea/avatar.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=hpIMKqPNLuibRLGd%2F20251210%2Fauto%2Fs3%2Faws4_request&X-Amz-Date=20251210T063035Z&X-Amz-Expires=3600&X-Amz-Signature=f55ae643f0ca4161cdf2d7fdb6120ad2dbcd5bfec665ae58023af0af4a3d4409&X-Amz-SignedHeaders=host&x-amz-checksum-mode=ENABLED&x-id=GetObject" 
+                      src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='10' r='3'%3E%3C/circle%3E%3Cpath d='M12 2a8 8 0 0 0-8 8c0 2.4.9 4.6 2.3 6.2a7.93 7.93 0 0 0 3.1 1.9A8 8 0 0 0 12 22a8 8 0 0 0 3.6-1.7 7.93 7.93 0 0 0 3.1-1.9c1.4-1.6 2.3-3.8 2.3-6.2a8 8 0 0 0-8-8z'%3E%3C/path%3E%3C/svg%3E" 
                       alt="Profile"
                     />
                   </div>
@@ -378,6 +378,26 @@ const App = () => {
               >
                 <Image className="w-6 h-6 mb-1" />
                 <span className="text-xs">Photo</span>
+              </button>
+              <button 
+                onClick={() => handleAttachOption('video')}
+                className="bg-white p-3 rounded-lg flex flex-col items-center justify-center hover:bg-gray-100"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 mb-1">
+                  <polygon points="23 7 16 12 23 17 23 7"></polygon>
+                  <rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect>
+                </svg>
+                <span className="text-xs">Video</span>
+              </button>
+              <button 
+                onClick={() => handleAttachOption('file')}
+                className="bg-white p-3 rounded-lg flex flex-col items-center justify-center hover:bg-gray-100"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 mb-1">
+                  <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+                  <polyline points="14 2 14 8 20 8"></polyline>
+                </svg>
+                <span className="text-xs">File</span>
               </button>
               <button 
                 onClick={() => handleAttachOption('location')}
