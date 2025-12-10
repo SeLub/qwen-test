@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram-like Chat</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header -->
+        <header class="chat-header">
+            <div class="header-left">
+                <button class="back-button">←</button>
+            </div>
+            <div class="header-center">
+                <div class="contact-info">
+                    <div class="avatar">
+                        <img src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff" alt="Contact">
+                    </div>
+                    <div class="contact-details">
+                        <h2>John Doe</h2>
+                        <p class="status">online</p>
+                    </div>
+                </div>
+            </div>
+            <div class="header-right">
+                <button class="header-icon">📞</button>
+                <button class="header-icon">👤</button>
+            </div>
+        </header>
+
+        <!-- Chat messages -->
+        <div class="chat-messages" id="chatMessages">
+            <div class="message received">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff" alt="Contact">
+                </div>
+                <div class="message-content">
+                    <div class="message-text">Hello! How are you doing today?</div>
+                    <div class="message-time">10:30 AM</div>
+                </div>
+            </div>
+            
+            <div class="message sent">
+                <div class="message-content">
+                    <div class="message-text">Hi John! I'm doing great, thanks for asking. How about you?</div>
+                    <div class="message-time">10:32 AM</div>
+                </div>
+            </div>
+            
+            <div class="message received">
+                <div class="avatar">
+                    <img src="https://ui-avatars.com/api/?name=John+Doe&background=0D8ABC&color=fff" alt="Contact">
+                </div>
+                <div class="message-content">
+                    <div class="message-text">I'm good too! Just working on some new projects.</div>
+                    <div class="message-time">10:33 AM</div>
+                </div>
+            </div>
+            
+            <div class="message sent">
+                <div class="message-content">
+                    <div class="message-text">That sounds interesting! What kind of projects?</div>
+                    <div class="message-time">10:34 AM</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message input -->
+        <div class="message-input-container">
+            <button class="input-icon">+</button>
+            <div class="input-wrapper">
+                <textarea id="messageInput" placeholder="Write a message..." rows="1"></textarea>
+            </div>
+            <button class="input-icon" id="attachButton">📎</button>
+            <button class="send-button" id="sendButton">➤</button>
+        </div>
+        
+        <!-- Attachment options (hidden by default) -->
+        <div class="attachment-options" id="attachmentOptions" style="display: none;">
+            <button class="attach-option"><span>📁</span> File</button>
+            <button class="attach-option"><span>📷</span> Photo</button>
+            <button class="attach-option"><span>🎬</span> Video</button>
+            <button class="attach-option"><span>📍</span> Location</button>
+            <button class="attach-option"><span>👤</span> Contact</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
